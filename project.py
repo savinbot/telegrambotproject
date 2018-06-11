@@ -64,6 +64,7 @@ def answer(chat_id, message):   # функция,обрабатывающая с
         tradebuttons(chat_id)
         # send_message(chat_id, "Эта функция в разработке")
     elif message == "Кошелёк":
+        send_message(chat_id, "Функция в разработке")
         # UserInfo = databasefuncSelect(chat_id)
         # if UserInfo == "нет информации":
             #wallet = Wallet()
