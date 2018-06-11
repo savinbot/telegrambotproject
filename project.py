@@ -111,7 +111,7 @@ def databasefunc(chat_id, wallet_id, balance, adressbal):
     except(SyntaxError):
         send_message(chat_id, "SyntaxError")
     connection.close()
-'''
+
 
 def databasefuncSelect(chat_id):
     connection = pymysql.connect(host=, user=, password=, db=, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
@@ -148,6 +148,7 @@ def database_updatefunc(balance, chat_id):
     # send_message(chat_id, "test123_update")
     connection.commit()
     connection.close()
+'''
 
 
 @app.route('/', methods=['POST', 'GET'])
