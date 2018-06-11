@@ -98,7 +98,7 @@ def answer(chat_id, message):   # функция,обрабатывающая с
         # walletbuttons(chat_id, 0)
     return
 
-
+'''
 def databasefunc(chat_id, wallet_id, balance, adressbal):
     connection = pymysql.connect(host=, user=, password=, db=, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
     # send_message(chat_id, "TEST")
@@ -111,7 +111,7 @@ def databasefunc(chat_id, wallet_id, balance, adressbal):
     except(SyntaxError):
         send_message(chat_id, "SyntaxError")
     connection.close()
-
+'''
 
 def databasefuncSelect(chat_id):
     connection = pymysql.connect(host=, user=, password=, db=, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
