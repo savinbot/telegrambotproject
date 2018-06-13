@@ -15,7 +15,6 @@ import MySQLdb
 import pymysql.cursors
 from blockchain.wallet import Wallet
 import os
-from intro_to_flask import app
 
 
 
