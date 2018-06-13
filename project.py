@@ -176,7 +176,7 @@ def index():
                 pass
                 # databasefunc(chat_id, message)
             return jsonify(r)
-    else
+    else:
         return '<h1>hello from bot</h1>'
 
 
