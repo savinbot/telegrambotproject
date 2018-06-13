@@ -14,6 +14,9 @@ import MySQLdb
 # import mysqlclient
 import pymysql.cursors
 from blockchain.wallet import Wallet
+import os
+from intro_to_flask import app
+
 
 
 token = '579304072:AAHbX697DMJeE9sdufAZRLUXCMnRWpDuibg'
