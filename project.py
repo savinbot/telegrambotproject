@@ -80,7 +80,7 @@ def answer(chat_id, message):   # функция,обрабатывающая с
                #  databasefunc(chat_id, newaddr, 0, 0)
             # except:
                #  send_message(chat_id, "create_address problem")
-        walletbuttons(chat_id, 0)  # заместо 0 поставить balance, который будет получаться из б.д.
+        # walletbuttons(chat_id, 0)  # заместо 0 поставить balance, который будет получаться из б.д.
     elif message == "send":
         send_message(chat_id,"Эта функция пока не работает")
     elif message == "sendback":
