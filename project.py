@@ -95,6 +95,10 @@ def answer(chat_id, message):   # функция,обрабатывающая с
         databasefuncSelect(chat_id)
     elif message == "my_chat_id":
         send_message(chat_id,"your chat_id: " + str(chat_id))
+    elif message == "createtable":
+        databasecreatetable(chat_id)
+    elif message == "createdb":
+        databasecreate(chat_id)
     else:
         send_message(chat_id,"Неизвестная команда:" + message)
         # создание адресов (new address)
