@@ -111,7 +111,7 @@ def databasefunc(chat_id, wallet_id, balance, adressbal):
     # send_message(chat_id, "TEST")
     # connection.commit()
     cursor = connection.cursor()
-    sql = "Insert into USERinfo(id, wallet, balance, adressbal) values(%s, %s, %s, %s)"
+    sql = "Insert into USER_INFO(id, wallet, balance, adressbal) values(%s, %s, %s, %s)"
     try:
         cursor.execute(sql, (chat_id, wallet_id, balance, adressbal))
         connection.commit()
@@ -133,7 +133,7 @@ def databasecreate(chat_id):
 def databasecreatetable(chat_id):
     connection = pymysql.connect(host="us-cdbr-iron-east-04.cleardb.net", user="b955e96665f0be", password="9078e623", db="heroku_4bf54ea004008da", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
-    sql = "CREATE TABLE user_info"
+    sql = "CREATE TABLE USER_INFO ( user_id VARCHAR(20), wallet_id VARCHAR(25), balance VARCHAR(30), address_balance VARCHAR(30))"
     try:
         cursor.execute(sql)
         connection.commit
@@ -148,7 +148,7 @@ def databasefuncSelect(chat_id):
     connection = pymysql.connect(host=us-cdbr-iron-east-04.cleardb.net, user=b955e96665f0be, password=9078e623, db=heroku_4bf54ea004008da, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
     # sql = "Select * from TEST;"
-    sql = "Select * from USERinfo;"
+    sql = "Select * from USER_INFO;"
     try:
         cursor.execute(sql)
         rowdata = cursor.fetchall()
@@ -174,7 +174,7 @@ def databasefuncSelect(chat_id):
 def database_updatefunc(balance, chat_id):
     connection = pymysql.connect(host=us-cdbr-iron-east-04.cleardb.net, user=b955e96665f0be, password=9078e623, db=heroku_4bf54ea004008da, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
-    sql = "Update USERinfo set balance = %s where id = %s;"
+    sql = "Update USER_INFO set balance = %s where id = %s;"
     cursor.execute(sql, (balance, chat_id))  # код останавливается на этой строке
     # send_message(chat_id, "test123_update")
     connection.commit()
