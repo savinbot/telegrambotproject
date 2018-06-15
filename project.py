@@ -126,8 +126,8 @@ def databasecreate(chat_id):
     try:
         cursor.execute(sql)
         connection.commit
-    except("SyntaxError"):
-        send_message(chat_id, "sytaxError")
+    except():
+        send_message(chat_id, "syntaxError")
     connection.close
 
 def databasecreatetable(chat_id):
@@ -138,8 +138,8 @@ def databasecreatetable(chat_id):
         cursor.execute(sql)
         connection.commit
         send_message(chat_id, "Таблица создана")
-    except("SyntaxError"):
-        send_message(chat_id, "sytaxError")
+    except():
+        send_message(chat_id, "syntaxError")
     connection.close
 
         
