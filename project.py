@@ -99,6 +99,8 @@ def answer(chat_id, message):   # функция,обрабатывающая с
         databasecreatetable(chat_id)
     elif message == "createdb":
         databasecreate(chat_id)
+    elif message == "dropdb":
+        droptable(chat_id)
     else:
         send_message(chat_id,"Неизвестная команда:" + message)
         # создание адресов (new address)
@@ -141,8 +143,21 @@ def databasecreatetable(chat_id):
     except():
         send_message(chat_id, "syntaxError")
     connection.close
-
-        
+    
+    
+def droptable(chat_id):
+    connection = pymysql.connect(host="us-cdbr-iron-east-04.cleardb.net", user="b955e96665f0be", password="9078e623", db="heroku_4bf54ea004008da", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+    cursor = connection.cursor()
+    sql = "DROP TABLE USER_INFO"  
+    try:
+        cursor.execute(sql)
+        connection.commit
+        send_message(chat_id, "Таблица удалена")
+    except():
+        send_message(chat_id, "syntaxError")
+    connection.close
+    
+    
 '''
 def databasefuncSelect(chat_id):
     connection = pymysql.connect(host=us-cdbr-iron-east-04.cleardb.net, user=b955e96665f0be, password=9078e623, db=heroku_4bf54ea004008da, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
