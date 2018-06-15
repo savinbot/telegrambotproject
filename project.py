@@ -107,7 +107,7 @@ def answer(chat_id, message):   # функция,обрабатывающая с
 
 
 def databasefunc(chat_id, wallet_id, balance, adressbal):
-    connection = pymysql.connect(host=us-cdbr-iron-east-04.cleardb.net, user=b955e96665f0be, password=9078e623, db=heroku_4bf54ea004008da, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+    connection = pymysql.connect(host="us-cdbr-iron-east-04.cleardb.net", user="b955e96665f0be", password="9078e623", db="heroku_4bf54ea004008da", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
     # send_message(chat_id, "TEST")
     # connection.commit()
     cursor = connection.cursor()
@@ -120,7 +120,7 @@ def databasefunc(chat_id, wallet_id, balance, adressbal):
     connection.close()
 
 def databasecreate(chat_id):
-    connection = pymysql.connect(host=us-cdbr-iron-east-04.cleardb.net, user=b955e96665f0be, password=9078e623, db=heroku_4bf54ea004008da, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+    connection = pymysql.connect(host="us-cdbr-iron-east-04.cleardb.net", user="b955e96665f0be", password="9078e623", db="heroku_4bf54ea004008da", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
     sql = "CREATE DATABASE telegrambotdatabase"
     try:
@@ -131,7 +131,7 @@ def databasecreate(chat_id):
     connection.close
 
 def databasecreatetable(chat_id):
-    connection = pymysql.connect(host=us-cdbr-iron-east-04.cleardb.net, user=b955e96665f0be, password=9078e623, db=heroku_4bf54ea004008da, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+    connection = pymysql.connect(host="us-cdbr-iron-east-04.cleardb.net", user="b955e96665f0be", password="9078e623", db="heroku_4bf54ea004008da", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
     sql = "CREATE TABLE user_info"
     try:
