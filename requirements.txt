@@ -21,7 +21,7 @@ PyMySQL==0.8.0
 pyTelegramBotAPI==3.6.2
 python-bitcoinrpc==1.0
 pytz==2018.4
-requests==2.18.4
+requests==2.7.0
 six==1.11.0
 telebot==0.0.3
 urllib3==1.22
