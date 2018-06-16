@@ -149,7 +149,7 @@ def droptable(chat_id):
 
 
 def databasefuncSelect(chat_id):         #  получение строки из б.д  с chat_id
-    connection = pymysql.connect(host=us-cdbr-iron-east-04.cleardb.net, user=b955e96665f0be, password=9078e623, db=heroku_4bf54ea004008da, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+    connection = pymysql.connect(host="us-cdbr-iron-east-04.cleardb.net", user="b955e96665f0be", password="9078e623", db="heroku_4bf54ea004008da", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
     # sql = "Select * from TEST;"
     sql = "Select * from USER_INFO;"
@@ -176,7 +176,7 @@ def databasefuncSelect(chat_id):         #  получение строки из
 
 
 def database_updatefunc(balance, chat_id):
-    connection = pymysql.connect(host=us-cdbr-iron-east-04.cleardb.net, user=b955e96665f0be, password=9078e623, db=heroku_4bf54ea004008da, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+    connection = pymysql.connect(host="us-cdbr-iron-east-04.cleardb.net", user="b955e96665f0be", password="9078e623", db="heroku_4bf54ea004008da", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
     sql = "Update USER_INFO set balance = %s where id = %s;"
     cursor.execute(sql, (balance, chat_id))  # код останавливается на этой строке
@@ -186,7 +186,7 @@ def database_updatefunc(balance, chat_id):
 
     
 def database_updatefunc2(balance, chat_id):
-    connection = pymysql.connect(host=us-cdbr-iron-east-04.cleardb.net, user=b955e96665f0be, password=9078e623, db=heroku_4bf54ea004008da, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+    connection = pymysql.connect(host="us-cdbr-iron-east-04.cleardb.net", user="b955e96665f0be", password="9078e623", db="heroku_4bf54ea004008da", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
     sql = "Update USER_INFO set adress_balance = %s where id = %s;"
     cursor.execute(sql, (balance, chat_id))
