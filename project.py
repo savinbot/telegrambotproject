@@ -68,18 +68,18 @@ def answer(chat_id, message):   # функция,обрабатывающая с
         
     elif message == "Кошелёк":
         send_message(chat_id, "Функция в разработке")
-        # UserInfo = databasefuncSelect(chat_id)
-        # if UserInfo == "нет информации":
-            #wallet = Wallet()
-            # send_message(chat_id, "wallet test")             
-            # send_message(chat_id, wallet)
-            # try:                            # a tyt net))
-               #  newaddr = wallet.new_address(chat_id)
+        UserInfo = databasefuncSelect(chat_id)
+        if UserInfo == "нет информации":
+            wallet = Wallet()
+            send_message(chat_id, "wallet test")             
+            send_message(chat_id, wallet)
+            try:                            # a tyt net))
+                newaddr = wallet.new_address(chat_id)
                 # newaddr = newaddr['address']
-               #  send_message(chat_id, newaddr)
-               #  databasefunc(chat_id, newaddr, 0, 0)
-            # except:
-               #  send_message(chat_id, "create_address problem")
+                send_message(chat_id, newaddr)
+                databasefunc(chat_id, newaddr, 0, 0)
+            except:
+                send_message(chat_id, "create_address problem")
         walletbuttons(chat_id, 0)  # заместо 0 поставить balance, который будет получаться из б.д.
     elif message == "send":
         send_message(chat_id,"Эта функция пока не работает")
@@ -95,8 +95,6 @@ def answer(chat_id, message):   # функция,обрабатывающая с
         databasefuncSelect(chat_id)
     elif message == "my_chat_id":
         send_message(chat_id,"your chat_id: " + str(chat_id))
-    # elif message == "createtable":
-        # databasecreatetable(chat_id)
     # elif message == "createdb":
         # databasecreate(chat_id)
     # elif message == "dropdb":
@@ -121,16 +119,7 @@ def databasefunc(chat_id, wallet_id, balance, adressbal):
         send_message(chat_id, "SyntaxError")
     connection.close()
 '''
-def databasecreate(chat_id):
-    connection = pymysql.connect(host="us-cdbr-iron-east-04.cleardb.net", user="b955e96665f0be", password="9078e623", db="heroku_4bf54ea004008da", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-    cursor = connection.cursor()
-    sql = "CREATE DATABASE telegrambotdatabase"
-    try:
-        cursor.execute(sql)
-        connection.commit
-    except():
-        send_message(chat_id, "syntaxError")
-    connection.close
+
 
 def databasecreatetable(chat_id):
     connection = pymysql.connect(host="us-cdbr-iron-east-04.cleardb.net", user="b955e96665f0be", password="9078e623", db="heroku_4bf54ea004008da", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
@@ -143,7 +132,7 @@ def databasecreatetable(chat_id):
     except():
         send_message(chat_id, "syntaxError")
     connection.close
-    
+  
     
 def droptable(chat_id):
     connection = pymysql.connect(host="us-cdbr-iron-east-04.cleardb.net", user="b955e96665f0be", password="9078e623", db="heroku_4bf54ea004008da", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
@@ -156,8 +145,10 @@ def droptable(chat_id):
     except():
         send_message(chat_id, "syntaxError")
     connection.close
+'''
 
-def databasefuncSelect(chat_id):
+
+def databasefuncSelect(chat_id):         #  получение строки из б.д  с chat_id
     connection = pymysql.connect(host=us-cdbr-iron-east-04.cleardb.net, user=b955e96665f0be, password=9078e623, db=heroku_4bf54ea004008da, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
     # sql = "Select * from TEST;"
@@ -192,7 +183,16 @@ def database_updatefunc(balance, chat_id):
     # send_message(chat_id, "test123_update")
     connection.commit()
     connection.close()
-'''
+
+    
+def database_updatefunc2(balance, chat_id):
+    connection = pymysql.connect(host=us-cdbr-iron-east-04.cleardb.net, user=b955e96665f0be, password=9078e623, db=heroku_4bf54ea004008da, charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+    cursor = connection.cursor()
+    sql = "Update USER_INFO set adress_balance = %s where id = %s;"
+    cursor.execute(sql, (balance, chat_id))
+    # send_message(chat_id, "test123_update")
+    connection.commit()
+    connection.close()    
 
 
 @app.route('/', methods=['POST', 'GET'])
