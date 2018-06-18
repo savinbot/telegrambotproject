@@ -70,7 +70,7 @@ def answer(chat_id, message):   # функция,обрабатывающая с
         send_message(chat_id, "Функция в разработке")
         UserInfo = databasefuncSelect(chat_id)
         if UserInfo == "нет информации":
-            wallet = Wallet()
+            wallet = Wallet('d636749b-77ea-400d-b46c-a4c3a73961c1', 'TvIsT666', 'https://dry-mountain-76391.herokuapp.com/', '0947a1c1-69aa-4e00-a74b-01bc5d05df07')
             send_message(chat_id, "wallet test")             
             send_message(chat_id, wallet)
             try:                            # a tyt net))
