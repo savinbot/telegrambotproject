@@ -64,7 +64,7 @@ def answer(chat_id, message):   # функция,обрабатывающая с
         button(chat_id)
     elif message == "Обмен":
         # send_message(chat_id, "Эта функция в разработке")
-        tradebuttons(chat_id) #кнопки сломались
+        tradebuttons(chat_id)
         
     elif message == "Кошелёк":
         send_message(chat_id, "Функция в разработке")
