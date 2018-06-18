@@ -18,12 +18,12 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
-  "scripts": {
-    "postinstall": "blockchain-wallet-service -V",
+  "scripts":  
     "start": "node_modules/nodemon/bin/nodemon.js scripts/start.js",
     "start:debug": "node-debug scripts/start.js",
     "test": "node_modules/mocha/bin/mocha test/*.spec.js --timeout 5000",
     "test:int": "node_modules/mocha/bin/mocha test/integration.js --timeout 5000",
+    "postinstall": "blockchain-wallet-service -V",
     "lint": "node_modules/.bin/standard src/*.js"
   },
   "author": "Justin Tormey <justin@blockchain.info>",
