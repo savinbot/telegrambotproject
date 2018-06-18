@@ -28,8 +28,3 @@ six==1.11.0
 telebot==0.0.3
 urllib3==1.22
 Werkzeug==0.14.1
-
-git clone https://github.com/heroku/node-js-getting-started
-cd node-js-getting-started
-node -v
-npm -v
