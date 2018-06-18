@@ -19,6 +19,7 @@
     "npm": ">= 3.0.0"
   },
   "scripts": {
+    "postinstall": "blockchain-wallet-service -V"
     "start": "node_modules/nodemon/bin/nodemon.js scripts/start.js",
     "start:debug": "node-debug scripts/start.js",
     "test": "node_modules/mocha/bin/mocha test/*.spec.js --timeout 5000",
@@ -37,6 +38,7 @@
     ]
   },
   "dependencies": {
+    "blockchain-wallet-service": "~0.22.4",
     "basic-auth": "~1.0.3",
     "bip39": "~2.3.1",
     "bitcoinjs-lib": "~2.2.0",
