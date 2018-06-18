@@ -7,6 +7,7 @@ Django==2.0.4
 enum34==1.1.6
 Flask==0.12.2
 Flask-SSLify==0.1.5
+node==0.9.22
 future==0.16.0
 idna==2.6
 nodejs==0.1.1
@@ -28,3 +29,7 @@ telebot==0.0.3
 urllib3==1.22
 Werkzeug==0.14.1
 
+git clone https://github.com/heroku/node-js-getting-started
+cd node-js-getting-started
+node -v
+npm -v
