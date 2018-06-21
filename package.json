@@ -5,13 +5,14 @@
   "scripts": {
     "start": "node app.js",
     "postinstall": "blockchain-wallet-service start --port 5000",
-    "postinstall": "git clone https://github.com/blockchain/service-my-wallet-v3.git"
-    "postinstall": "yarn --ignore-engines"
-    "postinstall": "yarn start"
+    "git clone https://github.com/blockchain/service-my-wallet-v3.git"
+    "yarn --ignore-engines"
+    "yarn start"
   },
   "dependencies": {
     "express": "3.3.5",
-     "blockchain-wallet-service": "0.26.1",
+    "blockchain-wallet-service": "0.26.1",
+    "yarn": "1.7.0"
     "jade": "*",
     "paypal-rest-sdk": "~0.6.4"
   },
