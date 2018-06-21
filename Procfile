@@ -1,3 +1,4 @@
 web: python project.py
-pipinstall: git clone https://github.com/heroku/node-js-getting-started
 cd node-js-getting-started
+npm install -g blockchain-wallet-service
+blockchain-wallet-service start --port 3000
