@@ -4,10 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "postinstall": "blockchain-wallet-service start --port 5000",
-    "postinstall": "git clone https://github.com/blockchain/service-my-wallet-v3.git",
-    "postinstall": "yarn --ignore-engines",
-    "postinstall": "yarn start"
+    "postinstall": "blockchain-wallet-service start --port 5000"
   },
   "dependencies": {
     "express": "3.3.5",
