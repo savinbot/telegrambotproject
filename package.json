@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "postinstall": "blockchain-wallet-service start --port 5000"
+    "heroku-postbuild": "blockchain-wallet-service start --port 5000"
   },
   "dependencies": {
     "express": "3.3.5",
