@@ -4,115 +4,70 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.exampledriven</groupId>
-    <artifactId>web-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
-
-    <name>web-service</name>
-    <description>Demo project for Spring Boot with Heroku</description>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.1.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <full-artifact-name>target/${project.artifactId}-${project.version}.jar</full-artifact-name>
-    </properties>
+    <groupId>io.javalin</groupId>
+    <artifactId>javalin-heroku-example</artifactId>
+    <version>1.0</version>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <groupId>io.javalin</groupId>
+            <artifactId>javalin</artifactId>
+            <version>1.6.1</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.21</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
             </plugin>
-
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>1.4.1.RELEASE</version>
+                <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
                     <execution>
+                        <phase>package</phase>
                         <goals>
-                            <goal>build-info</goal>
+                            <goal>single</goal>
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
                 <configuration>
-                    <dotGitDirectory>../.git</dotGitDirectory>
+                    <descriptorRefs>
+                        <!-- This tells Maven to include all dependencies -->
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>Main</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
-
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>1.1.3</version>
+                <configuration>
+                    <jdkVersion>1.8</jdkVersion>
+                    <appName>javalin-heroku-example</appName>
+                    <processTypes>
+                        <!-- Tell Heroku how to launch your application -->
+                        <web>java -jar ./target/javalin-heroku-example-1.0-jar-with-dependencies.jar</web>
+                    </processTypes>
+                </configuration>
+            </plugin>
         </plugins>
-
     </build>
-
-    <profiles>
-        <profile>
-            <id>heroku</id>
-            <activation>
-                <property>
-                    <name>heroku</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.heroku.sdk</groupId>
-                        <artifactId>heroku-maven-plugin</artifactId>
-                        <version>1.1.1</version>
-                        <configuration>
-                            <appName>exampledriven-springboot-dev</appName>
-                            <includeTarget>false</includeTarget>
-                            <includes>
-                                <include>${basedir}/${full-artifact-name}</include>
-                            </includes>
-                            <jdkVersion>1.8</jdkVersion>
-                            <processTypes>
-                                <web>java $JAVA_OPTS -jar ${full-artifact-name} --spring.profiles.active=heroku</web>
-                            </processTypes>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>deploy</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
 
 </project>
