@@ -77,7 +77,7 @@ def answer(chat_id, message):   # функция,обрабатывающая с
                 newaddr = wallet.new_address(chat_id)
                 # newaddr = newaddr['address']
                 send_message(chat_id, newaddr)
-                databasefunc(chat_id, newaddr, 0, 0)
+                # databasefunc(chat_id, newaddr, 0, 0)
             except:
                 send_message(chat_id, "create_address problem")
         walletbuttons(chat_id, 0)  # заместо 0 поставить balance, который будет получаться из б.д.
