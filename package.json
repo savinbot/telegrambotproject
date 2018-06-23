@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "heroku-postbuild": "blockchain-wallet-service start --port 443"
+    "blockchain-wallet-service start --port 443"
   },
   "dependencies": {
     "express": "3.3.5",
