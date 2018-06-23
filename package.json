@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "postinstall": "yarn --ignore-engines",
-    "postinstall": "yarn start"
+    "postinstall": "blockchain-wallet-service start --port 3000"
   },
   "dependencies": {
     "express": "3.3.5",
