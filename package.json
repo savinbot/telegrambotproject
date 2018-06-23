@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "postbuild": "yarn start test"
+    "build": "yarn start test"
   },
   "dependencies": {
     "express": "3.3.5",
