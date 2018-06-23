@@ -73,13 +73,13 @@ def answer(chat_id, message):   # функция,обрабатывающая с
             wallet = Wallet('d636749b-77ea-400d-b46c-a4c3a73961c1', 'TvIsT666', 'https://dry-mountain-76391.herokuapp.com/', '0947a1c1-69aa-4e00-a74b-01bc5d05df07')
             # send_message(chat_id, "wallet test")             
             send_message(chat_id, wallet)
-            #try:                            # a tyt net))
-            newaddr = wallet.new_address(chat_id)
+            try:                            # a tyt net))
+                newaddr = wallet.new_address(chat_id)
                 # newaddr = newaddr['address']
-            send_message(chat_id, newaddr)
-            databasefunc(chat_id, newaddr, 0, 0)
-            #except:
-                #send_message(chat_id, "create_address problem")
+                send_message(chat_id, newaddr)
+                databasefunc(chat_id, newaddr, 0, 0)
+            except:
+                send_message(chat_id, "create_address problem")
         walletbuttons(chat_id, 0)  # заместо 0 поставить balance, который будет получаться из б.д.
     elif message == "send":
         send_message(chat_id,"Эта функция пока не работает")
