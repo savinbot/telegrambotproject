@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "build": "yarn start test"
+    "postinstall": "nohup blockchain-wallet-service start --port 3000"
   },
   "dependencies": {
     "express": "3.3.5",
