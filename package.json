@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "heroku-prebuild": "git clone https://github.com/blockchain/api-v1-client-python",
+    "heroku-prebuild": "python setup.py install",    
     "heroku-prebuild": "cd api-v1-client-python",
-    "heroku-prebuild": "python setup.py install",
+    "heroku-prebuild": "git clone https://github.com/blockchain/api-v1-client-python",
     "heroku-postbuild": "blockchain-wallet-service start --port 3000"
   },
   "dependencies": {
