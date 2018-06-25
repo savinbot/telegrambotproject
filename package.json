@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "postinstall": "blockchain-wallet-service start --port 3000"
+    "heroku-prebuild": "cd api-v1-client-python",
+    "heroku-prebuild": "python setup.py install",
+    "heroku-postbuild": "blockchain-wallet-service start --port 3000"
   },
   "dependencies": {
     "express": "3.3.5",
