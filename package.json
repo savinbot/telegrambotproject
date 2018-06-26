@@ -5,10 +5,10 @@
   "scripts": {
     "start": "node app.js",
     "heroku-prebuild": "git clone https://github.com/blockchain/api-v1-client-python",
-    "postinstall": "cd api-v1-client-python",
-    "heroku-postbuild": "python setup.py install"
+    "postinstall": "cd api-v1-client-python"
   },
   "dependencies": {
+    "license" : "(ISC OR GPL-3.0)",
     "express": "3.3.5",
     "blockchain-wallet-service": "0.26.1",
     "yarn": "1.7.0",
