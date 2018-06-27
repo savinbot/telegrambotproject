@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node app.js",
     "heroku-prebuild": "git clone https://github.com/blockchain/api-v1-client-python",
-    "heroku-preinstall": "cd api-v1-client-python",
+    "preinstall": "cd api-v1-client-python",
     "postinstall": "python setup.py install"
   },
   "dependencies": {
