@@ -18,9 +18,9 @@ import os
 
 
 
-token = '579304072:AAHbX697DMJeE9sdufAZRLUXCMnRWpDuibg'
+token = '377736641:AAHm8BrhKN_nS7bNs1LqAsPus4ts5V-DsSc'
 URL = 'https://api.telegram.org/bot' + token + '/'
-# https://api.telegram.org/bot579304072:AAHbX697DMJeE9sdufAZRLUXCMnRWpDuibg/setWebhook?url=https://netr153.pythonanywhere.com/
+# https://api.telegram.org/bot377736641:AAHm8BrhKN_nS7bNs1LqAsPus4ts5V-DsSc/setWebhook?url=https://netr153.pythonanywhere.com/
 app = Flask(__name__)
 sslify = SSLify(app)
 bot = telebot.TeleBot(token)
